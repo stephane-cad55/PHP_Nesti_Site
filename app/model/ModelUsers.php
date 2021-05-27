@@ -1,9 +1,10 @@
 <?php
+
 include_once(PATH_MODEL . 'Connection.php');
 class ModelUsers
 {
-
-    public static function readAll() {
+    public static function readAll()
+    {
         //requete
         $pdo = Connection::getPdo();
 
@@ -25,7 +26,7 @@ class ModelUsers
         $sql = "SELECT idUsers AS idUser, lastName AS lastname, firstName AS firstname, email AS email, passwordHash AS passwordHash, flag AS flag, dateCreation AS dateCreation, login , address1 AS address1, address2 AS address2, zipCode AS zipCode, idcity AS idcity FROM users where $parameter = '$value'";
 
         $result = $pdo->query($sql);
-       
+
         if ($result) {
 
             $data = $result->fetch(PDO::FETCH_ASSOC);
@@ -33,10 +34,10 @@ class ModelUsers
 
             $data = [];
         }
-       
+
         $user = new Users();
         $user->setUserFromArray($data);
-      
+
         return $user;
     }
 
@@ -59,7 +60,7 @@ class ModelUsers
             $sql = "INSERT INTO users (lastName,firstName,email,passwordHash,flag ,dateCreation,login,address1,address2,zipCode,idCity) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
             $stmt = $pdo->prepare($sql);
-        
+
             $values = [$user->getLastName(), $user->getFirstName(), $user->getEmail(), $user->getPasswordHash(), $user->getFlag(), $user->getDateCreation(), $user->getLogin(), $user->getAddress1(), $user->getAddress2(), $user->getZipCode(), '1'];
 
             // Execute the prepared statement
@@ -74,7 +75,7 @@ class ModelUsers
         unset($pdo);
         return $newUser;
     }
-    
+
     public function deleteUser(Users &$user)
     {
         $pdo = Connection::getPdo();
@@ -103,13 +104,13 @@ class ModelUsers
             $sql = "UPDATE users SET lastName = ?, firstName = ?, address1 = ?, address2 = ?, zipCode = ?, flag = ?  where idUsers = ?";
 
             $stmt = $pdo->prepare($sql);
-           
+
             $values = [$user->getLastname(), $user->getFirstname(), $user->getAddress1(), $user->getAddress2(), $user->getZipCode(), $user->getFlag(), $user->getIdUser()];
 
             // Execute the prepared statement
             $stmt->execute($values);
             $user = $this->readOneBy("idUsers", $user->getIdUser());
-           
+
             echo "Records deleted successfully.";
         } catch (PDOException $e) {
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());

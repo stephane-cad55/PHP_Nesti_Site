@@ -42,7 +42,7 @@
                     <input type="radio" id="block" name="State" value="block">
                     <label for="block">block</label>
                 </div>
-                <!-- CA -->
+
                 <div class="row">
                     <div class="d-flex justify-content-center p-2">
                         <button type="submit" class="btn m-10 ml-2 valid w-50">Valider</button>
@@ -56,10 +56,8 @@
                 <input type="text" class="w-75" name="userLogin">
                 <p class="mt-5">Email</p><br>
                 <input type="text" class="w-75" name="userEmail">
-                <p class="mt-5">Mot de passe</p><br><input type="password" class="w-75" name="userPwd" id="pwd"
-                    required>
-                &nbsp;<br><br>Complexité du mot de passe : <meter value="0" low="3" high="5" min="0" max="5"
-                    id="pwd_meter">0%</meter><br>
+                <p class="mt-5">Mot de passe</p><br><input type="password" class="w-75" name="userPwd" id="pwd" required>
+                &nbsp;<br><br>Complexité du mot de passe : <meter value="0" low="3" high="5" min="0" max="5" id="pwd_meter">0%</meter><br>
 
                 <ul><br>
                     <li><span class="advice mr-5" id=><em><b>Conseils pour le mot de passe (Tous les lignes ci-dessous

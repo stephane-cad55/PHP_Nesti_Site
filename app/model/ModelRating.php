@@ -1,8 +1,8 @@
 <?php
-include_once(PATH_MODEL.'Connection.php');
-class ModelRating {
 
-
+include_once(PATH_MODEL . 'Connection.php');
+class ModelRating
+{
     public function readAllBy($parameter, $value)
     {
         $pdo = Connection::getPdo();
@@ -18,6 +18,4 @@ class ModelRating {
 
         return $array;
     }
-
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 include_once(PATH_MODEL . 'Connection.php');
 class ModelImages
 {
@@ -11,7 +12,6 @@ class ModelImages
         $sql = "SELECT * FROM image where $parameter = '$value'";
 
         $result = $pdo->query($sql);
-        //var_dump($result);
         if ($result) {
 
             $data = $result->fetch(PDO::FETCH_ASSOC);
@@ -19,10 +19,9 @@ class ModelImages
 
             $data = [];
         }
-        //var_dump($data);
         $images = new Images();
         $images->setImagesFromArray($data);
-        //$user -> setId($data);
+
         return $images;
     }
 
@@ -36,7 +35,7 @@ class ModelImages
             $stmt = $pdo->prepare($sql);
 
             $values = [$images->getName(), $images->getFileExtension()];
-           
+
             // Execute the prepared statement
             $stmt->execute($values);
             $newImages = $this->readOneBy("idImage", $pdo->lastInsertId());

@@ -179,13 +179,12 @@ class Recipes
     {
         $model = new ModelUsers();
         $chef = $model->readOneBy("idUsers", $this->getIdChef());
-        $fullName = $chef->getLastname() .' '. $chef->getFirstname(); 
+        $fullName = $chef->getLastname() . ' ' . $chef->getFirstname();
         return $fullName;
     }
 
     public function setRecipeFromArray($recipe)
     {
-        // var_dump($recipe);
         foreach ($recipe as $key => $value) {
 
             $this->$key = $value;
@@ -211,18 +210,6 @@ class Recipes
 
         return $this;
     }
-
-    /*---------------------------------------------------------------*/
-    /*
-    Titre : Convertie de secondes en heures, minutes et secondes                                                          
-                                                                                                                          
-    URL   : https://phpsources.net/code_s.php?id=939
-    Date édition     : 15 Fév 2019                                                                                        
-    Date mise à jour : 19 Aout 2019                                                                                      
-    Rapport de la maj:                                                                                                    
-    - fonctionnement du code vérifié                                                                                    
-*/
-    /*---------------------------------------------------------------*/
 
     function ConvertisseurTime($Time)
     {
@@ -280,11 +267,11 @@ class Recipes
         $paragraphs = $model->readAllBy("idRecipe", $this->getIdRecipe());
         return $paragraphs;
     }
+
     public function getRatting()
     {
-       $model = new ModelRating();
-       $logs = $model->readAllBy("idRecipe", $this->getIdRecipe());
-    //  var_dump(  $logs);
-       return $logs;
+        $model = new ModelRating();
+        $logs = $model->readAllBy("idRecipe", $this->getIdRecipe());
+        return $logs;
     }
 }

@@ -2,95 +2,89 @@
 
 class Importation
 {
-private $idAministrator;
-private $idArticle;
-private $idSupplierOrder;
-private $importationDate;
+    private $idAministrator;
+    private $idArticle;
+    private $idSupplierOrder;
+    private $importationDate;
 
+    /**
+     * Get the value of idAministrator
+     */
+    public function getIdAministrator()
+    {
+        return $this->idAministrator;
+    }
 
+    /**
+     * Set the value of idAministrator
+     */
+    public function setIdAministrator($idAministrator): self
+    {
+        $this->idAministrator = $idAministrator;
 
+        return $this;
+    }
 
+    /**
+     * Get the value of idArticle
+     */
+    public function getIdArticle()
+    {
+        return $this->idArticle;
+    }
 
+    /**
+     * Set the value of idArticle
+     */
+    public function setIdArticle($idArticle): self
+    {
+        $this->idArticle = $idArticle;
 
-/**
- * Get the value of idAministrator
- */
-public function getIdAministrator()
-{
-return $this->idAministrator;
-}
+        return $this;
+    }
 
-/**
- * Set the value of idAministrator
- */
-public function setIdAministrator($idAministrator) : self
-{
-$this->idAministrator = $idAministrator;
+    /**
+     * Get the value of idSupplierOrder
+     */
+    public function getIdSupplierOrder()
+    {
+        return $this->idSupplierOrder;
+    }
 
-return $this;
-}
+    /**
+     * Set the value of idSupplierOrder
+     */
+    public function setIdSupplierOrder($idSupplierOrder): self
+    {
+        $this->idSupplierOrder = $idSupplierOrder;
 
-/**
- * Get the value of idArticle
- */
-public function getIdArticle()
-{
-return $this->idArticle;
-}
+        return $this;
+    }
 
-/**
- * Set the value of idArticle
- */
-public function setIdArticle($idArticle) : self
-{
-$this->idArticle = $idArticle;
+    /**
+     * Get the value of importationDate
+     */
+    public function getImportationDate()
+    {
+        return $this->importationDate;
+    }
 
-return $this;
-}
+    /**
+     * Set the value of importationDate
+     */
+    public function setImportationDate($importationDate): self
+    {
+        $this->importationDate = $importationDate;
 
-/**
- * Get the value of idSupplierOrder
- */
-public function getIdSupplierOrder()
-{
-return $this->idSupplierOrder;
-}
+        return $this;
+    }
 
-/**
- * Set the value of idSupplierOrder
- */
-public function setIdSupplierOrder($idSupplierOrder) : self
-{
-$this->idSupplierOrder = $idSupplierOrder;
+    public function setImportationFromArray($importation)
+    {
 
-return $this;
-}
+        foreach ($importation as $key => $value) {
 
-/**
- * Get the value of importationDate
- */
-public function getImportationDate()
-{
-return $this->importationDate;
-}
-
-/**
- * Set the value of importationDate
- */
-public function setImportationDate($importationDate) : self
-{
-$this->importationDate = $importationDate;
-
-return $this;
-}
-
-public function setImportationFromArray($importation)
-        {
-    
-            foreach ($importation as $key => $value) {
-    
-                $this->$key = $value;
-            }
+            $this->$key = $value;
         }
-
+    }
 }

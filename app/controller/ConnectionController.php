@@ -2,9 +2,6 @@
 
 class ConnectionController extends BaseController
 {
-    // $model = new ModelUsers();
-    // $arrayUsers = $model->readAll();
-
     public function initialize()
     {
         $loc    = filter_input(INPUT_GET, "loc", FILTER_SANITIZE_STRING);
@@ -12,7 +9,6 @@ class ConnectionController extends BaseController
         $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_STRING);
         if ($action == '') {
             $model = new Connection();
-            // $this->data['arrayConnection'] = $model->readAll();
         }
 
         if (!empty($_POST)) {
@@ -22,7 +18,6 @@ class ConnectionController extends BaseController
                 header('Location:' . BASE_URL . 'connection');
                 die();
             } else {
-                // echo ("else");
 
                 $login    = $_POST["loginUser"];
                 $password = $_POST["password"];
@@ -35,8 +30,8 @@ class ConnectionController extends BaseController
                     $_SESSION["firstname"] = $user->getFirstname();
                     $_SESSION["lastname"]  = $user->getLastname();
 
-                $model = new ModelConnectionLog;
-                $model->insertDateCo($user);
+                    $model = new ModelConnectionLog;
+                    $model->insertDateCo($user);
                     header('Location:' . BASE_URL . 'recipes');
                 } else {
                     header('Location:' . BASE_URL . 'connection');

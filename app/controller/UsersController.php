@@ -69,12 +69,8 @@ class UsersController extends BaseController
         $this->data['user'] = $user;
         $model = new ModelOrders();
         $this->data['arrayOrders'] = $model->readAll();
-    //    var_dump($this->data['arrayOrders']);
-          $com = new ModelComment();
-         $this->data['arrayCom'] = $com->readAll();
-  // $user = new Users();
-   // $user->setName($_SESSION["idUsers"]);
-
+        $com = new ModelComment();
+        $this->data['arrayCom'] = $com->readAll();
     }
     public function delete($id)
     {
@@ -118,7 +114,6 @@ class UsersController extends BaseController
             if (isset($_POST["roleModerator"])) {
                 $insertedUser->makeModerator();
             }
-
             header('Location:' . BASE_URL . "users/editing/" . $idUsers);
         }
     }

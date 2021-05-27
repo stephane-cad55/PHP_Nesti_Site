@@ -50,7 +50,7 @@
                     <button type="reset" class="btn btn-danger m-10 ml-2 w-50">Supprimer</button>
                 </div>
             </div>
-           
+
         </form>
 
         <div class="col mt-5">
@@ -108,7 +108,6 @@
 
                     </thead>
                     <?php
-                    //var_dump($arrayRecipes);
                     foreach ($user->getOrders() as $value) {
                     ?>
                         <tr>
@@ -152,9 +151,7 @@
             <div class="container bg-white d-flex flex-column align-items-left" id="recipes">
                 <div class="d-flex flex-row justify-content-between">
                     <nav class="navbar navbar-white bg-white pl-0">
-
                     </nav>
-
                 </div>
 
                 <table class="table">
@@ -170,7 +167,6 @@
                         <th scope="col">Actions</th>
                     </thead>
                     <?php
-                    //var_dump($arrayRecipes);
                     foreach ($user->getComments() as $com) {
                     ?>
                         <tr>
@@ -195,26 +191,3 @@
         </div>
     </div>
 </div>
-
-<!-- <div class="col mt-5">
-              
-                <p class="mt-5">Mot de passe</p><br><input type="password" class="w-75" name="userPwd" id="pwd"
-                    required>
-                &nbsp;<br><br>Complexité du mot de passe : <meter value="0" low="3" high="5" min="0" max="5"
-                    id="pwd_meter">0%</meter><br>
-
-                <ul><br>
-                    <li><span class="advice mr-5" id=><em><b>Conseils pour le mot de passe (Tous les lignes ci-dessous
-                                    doivent être vertes).</b></em></span></li>
-                    <li><span class="advice mr-5" id="pwd_warn1">Le mot de passe doit faire plus de 8 caractères.</span>
-                    </li>
-                    <li><span class="advice" id="pwd_warn2">Le mot de passe doit contenir au moins une lettre
-                            minuscule.</span></li>
-                    <li><span class="advice" id="pwd_warn3">Le mot de passe doit contenir au moins une lettre
-                            majuscule.</span></li>
-                    <li><span class="advice" id="pwd_warn4">Le mot de passe doit contenir au moins un chiffre.</span>
-                    </li>
-                    <li><span class="advice" id="pwd_warn5">Le mot de passe doit contenir au moins un caractère
-                            non-alphanumérique.</span></li>
-                </ul>
-            </div> -->

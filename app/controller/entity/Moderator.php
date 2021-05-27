@@ -1,7 +1,7 @@
 <?php
 
-class Moderator{
-
+class Moderator
+{
     private $idModerator;
 
     /**
@@ -15,7 +15,7 @@ class Moderator{
     /**
      * Set the value of idModerator
      */
-    public function setIdModerator($idModerator) : self
+    public function setIdModerator($idModerator): self
     {
         $this->idModerator = $idModerator;
 

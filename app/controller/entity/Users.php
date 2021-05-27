@@ -28,7 +28,6 @@ class Users
       if ($this->getConnectionLogs()) {
          $lateCoDate = $this->getConnectionLogs()[0]->getDateConnection();
       }
-   
       return $lateCoDate;
    }
 
@@ -375,11 +374,4 @@ class Users
       $comments = $this->data['arrayCom'] = $com->readAll();
       return $comments;
    }
-
-   // public function getLastConnection()
-   // {
-   //    $connect = new ModelConnectionLog();
-   //    $co = $connect->readOneBy("idUsers", $this->idUser);
-   //    return $co;
-   // }
 }

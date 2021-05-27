@@ -7,7 +7,6 @@ class Images
     private $name;
     private $fileExtension;
 
-
     /**
      * Get the value of idImage
      */

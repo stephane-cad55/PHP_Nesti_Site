@@ -1,14 +1,13 @@
 <?php
 
+class Lot
+{
 
-    class Lot{
-    
     private $idArticle;
     private $idSupplierOrder;
     private $unitCost;
     private $dateReception;
     private $quantity;
-    
 
     /**
      * Get the value of idArticle
@@ -21,7 +20,7 @@
     /**
      * Set the value of idArticle
      */
-    public function setIdArticle($idArticle) : self
+    public function setIdArticle($idArticle): self
     {
         $this->idArticle = $idArticle;
 
@@ -39,7 +38,7 @@
     /**
      * Set the value of idSupplierOrder
      */
-    public function setIdSupplierOrder($idSupplierOrder) : self
+    public function setIdSupplierOrder($idSupplierOrder): self
     {
         $this->idSupplierOrder = $idSupplierOrder;
 
@@ -57,7 +56,7 @@
     /**
      * Set the value of unitCost
      */
-    public function setUnitCost($unitCost) : self
+    public function setUnitCost($unitCost): self
     {
         $this->unitCost = $unitCost;
 
@@ -75,7 +74,7 @@
     /**
      * Set the value of dateReception
      */
-    public function setDateReception($dateReception) : self
+    public function setDateReception($dateReception): self
     {
         $this->dateReception = $dateReception;
 
@@ -93,7 +92,7 @@
     /**
      * Set the value of quantity
      */
-    public function setQuantity($quantity) : self
+    public function setQuantity($quantity): self
     {
         $this->quantity = $quantity;
 
@@ -108,5 +107,4 @@
             $this->$key = $value;
         }
     }
-
-    }
+}

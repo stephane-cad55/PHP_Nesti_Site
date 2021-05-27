@@ -19,25 +19,25 @@
     <h2 class="ml-5">Liste des articles importés</h2>
 
     <div class="consult row w-50 h-100">
-            <div class="col">
-                <p>Jean Robert</p><br>
-                <p>Marc Lavoine</p><br>
-                <p>Régis Pierre</p><br>
-            </div>
+      <div class="col">
+        <p>Jean Robert</p><br>
+        <p>Marc Lavoine</p><br>
+        <p>Régis Pierre</p><br>
+      </div>
 
-            <div class="col">
-                <p>Jean Robert</p><br>
-                <p>Marc Lavoine</p><br>
-                <p>Régis Pierre</p><br>
-            </div>
+      <div class="col">
+        <p>Jean Robert</p><br>
+        <p>Marc Lavoine</p><br>
+        <p>Régis Pierre</p><br>
+      </div>
 
-            <div>
-                <a class="mr-5" href="">voir</a><br><br>
-                <a href="">voir</a><br><br>
-                <a href="">voir</a><br>
-            </div>
+      <div>
+        <a class="mr-5" href="">voir</a><br><br>
+        <a href="">voir</a><br><br>
+        <a href="">voir</a><br>
+      </div>
 
-        </div>
+    </div>
   </div>
 
 </div>

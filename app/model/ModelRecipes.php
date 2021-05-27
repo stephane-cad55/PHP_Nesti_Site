@@ -1,4 +1,5 @@
 <?php
+
 include_once(PATH_MODEL . 'Connection.php');
 class ModelRecipes
 {
@@ -7,7 +8,6 @@ class ModelRecipes
         //requete
         $pdo = Connection::getPdo();
 
-        //$sql="SELECT r.idRecipe AS id, r.name AS name, r.dateCreation AS dateCreation, r.difficulty AS difficulty, r.portions AS portions, r.flag AS flag, r.preparationTime AS time, r.idImage AS image, users.firstName as chief,r.idChef as idChief FROM recipe r INNER JOIN chef ON chef.idChef = r.idChef INNER JOIN users ON users.idUsers = chef.idChef";
         $sql = "SELECT * FROM recipe";
         $result = $pdo->query($sql);
         if ($result) {
@@ -65,7 +65,7 @@ class ModelRecipes
         $pdo = Connection::getPdo();
 
         $sql = "SELECT * FROM recipe where $parameter = '$value'";
-        // var_dump($sql);
+
         $result = $pdo->query($sql);
 
         if ($result) {
@@ -73,10 +73,10 @@ class ModelRecipes
         } else {
             $data = [];
         }
-        
+
         $recipe = new Recipes();
         $recipe->setRecipeFromArray($data);
-       
+
         return $recipe;
     }
 
@@ -115,4 +115,3 @@ class ModelRecipes
         return $recipe;
     }
 }
-

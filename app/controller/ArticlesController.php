@@ -1,24 +1,5 @@
 <?php
 
-// $model = new ModelArticles ();
-// $arrayArticles = $model -> readAll(); 
-// include 'app/view/common/head.php';
-// switch ($action) {
-//     case 'orders':
-//       include(PATH_CONTENT . "/content_articles_orders.php");
-//       break;
-//     case 'importation':
-//       include(PATH_CONTENT . "/content_articles_importation.php");
-//       break;
-//     case 'editing':
-//       include(PATH_CONTENT . "/content_articles_editing.php");
-//       break;
-//     default:
-//       include(PATH_CONTENT . "/content_articles.php");
-//       break;
-//   }
-//   include 'app/view/common/footer.php';
-
 class ArticlesController extends BaseController
 {
     public function initialize()

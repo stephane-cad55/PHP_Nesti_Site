@@ -1,4 +1,5 @@
 <?php
+
 include_once(PATH_MODEL . 'Connection.php');
 class ModelArticleprice
 {
@@ -26,7 +27,7 @@ class ModelArticleprice
         $sql = "SELECT * FROM articleprice where $parameter = '$value'";
 
         $result = $pdo->query($sql);
-        //var_dump($result);
+
         if ($result) {
 
             $data = $result->fetch(PDO::FETCH_ASSOC);
@@ -36,7 +37,7 @@ class ModelArticleprice
         }
         $articleprice = new Articleprice();
         $articleprice->setArticlepriceFromArray($data);
-       
+
         return $articleprice;
     }
 
@@ -54,14 +55,12 @@ class ModelArticleprice
 
         $sql = "SELECT * FROM articleprice where $parameter = '$value'";
         $result = $pdo->query($sql);
-       
+
         if ($result) {
             $array = $result->fetchAll(PDO::FETCH_CLASS, 'Articleprice');
-           
         } else {
             $array = [];
         }
-       
         return $array;
     }
 }

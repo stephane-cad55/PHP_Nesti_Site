@@ -1,13 +1,8 @@
 <?php
 
-class Ingredient {
-
-
- 
+class Ingredient
+{
     private $idProduct;
-
-
-
 
     /**
      * Get the value of idProduct
@@ -20,18 +15,19 @@ class Ingredient {
     /**
      * Set the value of idProduct
      */
-    public function setIdProduct($idProduct) : self
+    public function setIdProduct($idProduct): self
     {
         $this->idProduct = $idProduct;
 
         return $this;
     }
+
     public function setIngredientFromArray($chef)
     {
-       //var_dump($user);
-       foreach ($chef as $key => $value) {
- 
-          $this->$key = $value;
-       }
+
+        foreach ($chef as $key => $value) {
+
+            $this->$key = $value;
+        }
     }
 }

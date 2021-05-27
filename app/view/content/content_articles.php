@@ -29,7 +29,7 @@
       <th scope="col">Prix de vente</th>
       <th scope="col">Type</th>
       <th scope="col">Dernière importation</th>
-      <th scope="col">stock</th>
+      <th scope="col">Stock</th>
       <th scope="col">Actions</th>
 
     </thead>
@@ -40,13 +40,13 @@
 
       <tr>
         <td class="font-weight-bold text-dark d-flex align-items-center justify-content-center"><?= $value->getIdArticle(); ?>
-        <td><?= $value->getUnitQuantity(); ?> <?= $value->getUnitName()=='UNITE'?'': $value->getUnitName() ; ?> <?= $value->getName(); ?></td>
+        <td><?= $value->getUnitQuantity(); ?> <?= $value->getUnitName() == 'UNITE' ? '' : $value->getUnitName(); ?> <?= $value->getName(); ?></td>
         <td><?= $value->getPrice(); ?></td>
         <td><?= $value->getType(); ?></td>
         <td><?= $value->getLastimport(); ?></td>
         <td><?= $value->getStock(); ?></td>
         <td>
-          <a href="<?= BASE_URL . "articles/editing/" .$value->getIdArticle()  ?>">Modifier</a><br>
+          <a href="<?= BASE_URL . "articles/editing/" . $value->getIdArticle()  ?>">Modifier</a><br>
           <a data-toggle="modal" href="#myModal<?= $value->getIdArticle(); ?>">Supprimer</a>
 
           <div class="container">
@@ -78,8 +78,8 @@
           </div>
         </td>
       </tr>
-      <?php
+    <?php
     }
-?>
+    ?>
   </table>
 </div>

@@ -1,8 +1,11 @@
 <?php
-include_once(PATH_MODEL.'Connection.php');
-class ModelOrderline {
-   
-    public static function readAll() {
+
+include_once(PATH_MODEL . 'Connection.php');
+class ModelOrderline
+{
+
+    public static function readAll()
+    {
         //requete
         $pdo = Connection::getPdo();
 

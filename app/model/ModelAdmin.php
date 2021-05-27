@@ -1,4 +1,5 @@
 <?php
+
 include_once(PATH_MODEL.'Connection.php');
 class ModelAdmin {
 
@@ -16,12 +17,10 @@ class ModelAdmin {
             var_dump($values);
             $stmt->execute($values);
       
-            //$newUser = $this->readOneBy("idUsers",$pdo->lastInsertId());
             echo "Records insert admin inserted successfully.";
         } catch(PDOException $e){
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
         unset($pdo);
-        // return $newUser;
     }
 }

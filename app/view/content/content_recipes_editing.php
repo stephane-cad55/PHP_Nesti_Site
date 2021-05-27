@@ -84,13 +84,13 @@
                 <div class="ingredientsCtn" id="ingCtn">
                 </div>
                 <p class="mt-2 mb-2">Ajouter un ingrédient</p>
-                <input type="text" id="ingName" class="mb-2 w-100" style="height: 38px;">
+                <input type="text" id="ingName" class="mb-2 w-100" style="height: 38px;" placeholder="nom de l'ingrédient">
                 <div class="row">
                     <div class="col-md-5">
-                        <input type="text" onkeypress="return onlyNumberKey(event)" id="ingQty" class="w-100 h-100">
+                        <input type="text" onkeypress="return onlyNumberKey(event)" id="ingQty" class="w-100 h-100" placeholder="quantité">
                     </div>
                     <div class="col-md-5">
-                        <input type="text" id="ingUnit" class="w-100 h-100">
+                        <input type="text" id="ingUnit" class="w-100 h-100" placeholder="unité">
                     </div>
                     <div class="col-md-2 d-flex justify-content-end">
                         <button type="submit" class="btn valid" onclick="addIngredient()">Ok</button>

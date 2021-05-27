@@ -53,7 +53,7 @@ switch ($loc) {
   case 'statistics':
     include(PATH_CONTENT . "/content_statistics.php");
     break;
-    
+
   case 'deconnection':
     break;
 

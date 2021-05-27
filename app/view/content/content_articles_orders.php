@@ -1,7 +1,7 @@
 <?php
 
 $session = $_SESSION['Roles'];
-//var_dump(strpos($session,'Administateur')." ".strpos($session,'Moderateur'));
+
 if ((is_int(strpos($session, 'Administateur')) || (is_int(strpos($session, 'Chef'))))) {
 ?>
 
@@ -69,7 +69,6 @@ if ((is_int(strpos($session, 'Administateur')) || (is_int(strpos($session, 'Chef
         </div>
       </div>
     </div>
-
 
     </tbody>
 

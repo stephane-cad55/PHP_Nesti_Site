@@ -1,20 +1,18 @@
 <?php
 
-class ConnectionLog{
+class ConnectionLog
+{
 
-    Private $idUsers;
-    Private $dateConnection;
-    Private $IdUserLog;
-
+    private $idUsers;
+    private $dateConnection;
+    private $IdUserLog;
 
     public function setConnectionLogFromArray($ConnectionLog)
     {
-    //var_dump($user);
-     foreach ($ConnectionLog as $key => $value) {
-   
-      $this->$key = $value;
-   
-     }
+        foreach ($ConnectionLog as $key => $value) {
+
+            $this->$key = $value;
+        }
     }
 
     /**
@@ -30,7 +28,7 @@ class ConnectionLog{
      *
      * @return self
      */
-    public function setIdUsers($idUsers) : self
+    public function setIdUsers($idUsers): self
     {
         $this->idUsers = $idUsers;
 
@@ -50,7 +48,7 @@ class ConnectionLog{
      *
      * @return self
      */
-    public function setDateConnection($dateConnection) : self
+    public function setDateConnection($dateConnection): self
     {
         $this->dateConnection = $dateConnection;
 
@@ -70,18 +68,18 @@ class ConnectionLog{
      *
      * @return self
      */
-    public function setIdUserLog($IdUserLog) : self
+    public function setIdUserLog($IdUserLog): self
     {
         $this->IdUserLog = $IdUserLog;
 
         return $this;
     }
+
     public function setLogFromArray($log)
     {
-       //var_dump($user);
-       foreach ($log as $key => $value) {
- 
-          $this->$key = $value;
-       }
+        foreach ($log as $key => $value) {
+
+            $this->$key = $value;
+        }
     }
 }

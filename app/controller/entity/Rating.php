@@ -6,21 +6,12 @@ class Rating
     private $idRecipe;
     private $rating;
 
-
-
-
-
-    
     public function setRatingFromArray($rating)
     {
-        // var_dump($recipe);
         foreach ($rating as $key => $value) {
 
             $this->$key = $value;
         }
-
-
-
     }
 
     /**
@@ -34,7 +25,7 @@ class Rating
     /**
      * Set the value of idUsers
      */
-    public function setIdUsers($idUsers) : self
+    public function setIdUsers($idUsers): self
     {
         $this->idUsers = $idUsers;
 
@@ -52,7 +43,7 @@ class Rating
     /**
      * Set the value of idRecipe
      */
-    public function setIdRecipe($idRecipe) : self
+    public function setIdRecipe($idRecipe): self
     {
         $this->idRecipe = $idRecipe;
 
@@ -70,7 +61,7 @@ class Rating
     /**
      * Set the value of rating
      */
-    public function setRating($rating) : self
+    public function setRating($rating): self
     {
         $this->rating = $rating;
 

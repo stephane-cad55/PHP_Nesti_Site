@@ -1,15 +1,10 @@
 <?php
 include 'config.php';
-//include'/'//fonctions,gestions url
-// include('app/model/ModelRecipes.php');
-// include('entity/Recipes.php');
 include PATH_MODEL . 'Connection.php';
 include 'utils/Utils.php';
 
 function my_autoloader($class)
 {
-    // echo ($class . '<br>');
-    // echo substr($class, -10);
     if (substr($class, 0, 5) == "Model") {
         include PATH_MODEL . $class . '.php';
     } else if (substr($class, -10) == "Controller") {

@@ -1,6 +1,5 @@
 <?php
 
-
 class Articles
 {
         private $idArticle;
@@ -129,7 +128,6 @@ class Articles
                 if ($unit = "UNITE") {
                         $this->unit = "";
                 }
-
                 return $this->unit;
         }
 
@@ -164,19 +162,16 @@ class Articles
         public function getName()
         {
                 $name = new ModelProduct();
-                // var_dump($this->idProduct);
                 $name1 = $name->readOneBy("idProduct", $this->idProduct);
 
-                // var_dump($name1);
                 return  $name1->getName();
         }
 
         public function getPrice()
         {
                 $name = new ModelArticleprice();
-                // var_dump($this->idProduct);
                 $name2 = $name->readAllBy("idArticle", $this->idArticle);
-                // prendre le dernier prix de vente
+
                 foreach ($name2 as $price) {
                         $val = $price->getPrice();
                 }
@@ -186,7 +181,6 @@ class Articles
 
         public function setArticleFromArray($recipe)
         {
-
                 foreach ($recipe as $key => $value) {
 
                         $this->$key = $value;
@@ -196,32 +190,25 @@ class Articles
         public function getLastimport()
         {
                 $name = new ModelImportation();
-                // var_dump($this->idProduct);
                 $name3 = $name->readOneBy("idArticle", $this->idArticle);
 
-                // var_dump($name3->getImportationDate());
                 return  $name3->getImportationDate();
         }
 
         public function getStock()
         {
                 $name = new ModelLot();
-                // var_dump($this->idProduct);
                 $name4 = $name->readOneBy("idArticle", $this->idArticle);
 
-                // var_dump($name4->getquantity());
                 return  $name4->getQuantity();
         }
 
         public function getUnitName()
         {
                 $unit = new ModelUnit();
-                // var_dump($this->idProduct);
                 $unit1 = $unit->readOneBy("idUnit", $this->idUnit);
                 $unity = $unit1->getName();
-                //  var_dump($unity);
 
-                // var_dump($unit1->getName());
                 return  $unity;
         }
 
@@ -229,7 +216,7 @@ class Articles
         {
                 $model = new ModelProduct();
                 $data  = $model->findChildType("ingredient", "product", $this->getIdProduct());
-                // var_dump($data);
+
                 if ($data != Null) {
                         $type = "ingredient";
                 } else {
@@ -244,13 +231,14 @@ class Articles
 
                 return $this->getType() != null;
         }
-        public function getLots(){
-                $lot= new ModelLot();
-                $lot=$lot->readOneBy("idArticle",$this->getIdArticle());
-               
+
+        public function getLots()
+        {
+                $lot = new ModelLot();
+                $lot = $lot->readOneBy("idArticle", $this->getIdArticle());
+
                 return $lot;
         }
-                
 
         public function getFactoryName()
         {
@@ -261,26 +249,25 @@ class Articles
                 return  $factoryName;
         }
 
-        public function getArticleQuantIn(){
+        public function getArticleQuantIn()
+        {
                 return $this->getLots();
         }
 
         public function getNbBought()
         {
-            $totalQuantity = 0;
-            foreach ($this->getLots() as $lot) {
-                $totalQuantity += $this->getLots()->getQuantity();
-                
-            }
-            var_dump($this->getLots()->getQuantity());
-         
-            return $totalQuantity;
+                $totalQuantity = 0;
+                foreach ($this->getLots() as $lot) {
+                        $totalQuantity += $this->getLots()->getQuantity();
+                }
+
+                return $totalQuantity;
         }
-        
+
         public function getArticlePrices()
         {
                 $model = new ModelArticleprice();
-              
+
                 $articlePrices = $model->readAllBy("idArticle", $this->getIdArticle());
                 return $articlePrices;
         }
@@ -289,7 +276,7 @@ class Articles
         {
                 $maxDate = 0;
                 $arrayArticlePrice = $this->getArticlePrices();
-            
+
                 foreach ($arrayArticlePrice as $value) {
                         $date = strtotime($value->getDateStart());
                         if ($date <= $dateMax) {

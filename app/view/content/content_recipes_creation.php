@@ -5,7 +5,7 @@
                 <h1 class="mb-2 mt-4">Création d'une recette</h1>
                 <p class="mt-4">Nom de la recette</p>
                 <input type="text" class="w-100" name="recipeName">
-                <p  class="mt-3">Auteur de la recette : <?= print_r($_SESSION["firstname"] . " " . $_SESSION["lastname"]) ?></p>
+                <p class="mt-3">Auteur de la recette : <?= print_r($_SESSION["firstname"] . " " . $_SESSION["lastname"]) ?></p>
                 <div class="row">
                     <div class="col d-flex justify-content-between flex-column">
                         <p class="mt-4 mb-2">Difficulté (note sur 5)</p>
@@ -16,7 +16,7 @@
                         <div class="col d-flex justify-content-between flex-column p-0">
                             <div class="d-flex justify-content-end"><input type="number" onkeypress="return onlyNumberKey(event)" name="recipedifficult" class="w-50 mt-4 mb-2"></div>
                             <div class="d-flex justify-content-end"><input type="number" onkeypress="return onlyNumberKey(event)" name="recipePortion" class="w-50 mt-4 mb-2"></div>
-                            <div class="d-flex justify-content-end"><input type="text"   onkeypress="return onlyNumberKey(event)" name="recipeTimePrepare" class="w-50 mt-4 mb-2"></div>
+                            <div class="d-flex justify-content-end"><input type="text" onkeypress="return onlyNumberKey(event)" name="recipeTimePrepare" class="w-50 mt-4 mb-2"></div>
                         </div>
                     </div>
                 </div>
@@ -82,13 +82,13 @@
                 <div class="ingredientsCtn" id="ingCtn">
                 </div>
                 <p class="mt-2 mb-2">Ajouter un ingrédient</p>
-                <input type="text" id="ingName" class="mb-2 w-100" style="height: 38px;">
+                <input type="text" id="ingName" class="mb-2 w-100" style="height: 38px;" placeholder="nom de l'ingrédient">
                 <div class="row">
                     <div class="col-md-5">
-                        <input type="text" onkeypress="return onlyNumberKey(event)" id="ingQty" class="w-100 h-100">
+                        <input type="text" onkeypress="return onlyNumberKey(event)" id="ingQty" class="w-100 h-100" placeholder="quantité">
                     </div>
                     <div class="col-md-5">
-                        <input type="text" id="ingUnit" class="w-100 h-100">
+                        <input type="text" id="ingUnit" class="w-100 h-100" placeholder="unité">
                     </div>
                     <div class="col-md-2 d-flex justify-content-end">
                         <button type="submit" class="btn valid" onclick="addIngredient()">Ok</button>

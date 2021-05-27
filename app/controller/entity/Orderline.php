@@ -17,7 +17,7 @@ class Orderline
     /**
      * Set the value of idOrders
      */
-    public function setIdOrders($idOrders) : self
+    public function setIdOrders($idOrders): self
     {
         $this->idOrders = $idOrders;
 
@@ -35,7 +35,7 @@ class Orderline
     /**
      * Set the value of idArticle
      */
-    public function setIdArticle($idArticle) : self
+    public function setIdArticle($idArticle): self
     {
         $this->idArticle = $idArticle;
 
@@ -53,35 +53,35 @@ class Orderline
     /**
      * Set the value of quantity
      */
-    public function setQuantity($quantity) : self
+    public function setQuantity($quantity): self
     {
         $this->quantity = $quantity;
 
         return $this;
     }
+
     public function getQuantitybyOrder()
-    { // Surement à deplacer dans Article....et a modifier
+    {
         $model = new ModelOrderline();
         $quant = $model->readAllBy("idOrders", $this->getIdOrders());
-        
-        $fullquant=$this->getQuantity();
+        $fullquant = $this->getQuantity();
 
         return $fullquant;
     }
-  
+
     public function setOrderlineFromArray($orderLine)
     {
-       foreach ($orderLine as $key => $value) {
- 
-          $this->$key = $value;
-       }
+        foreach ($orderLine as $key => $value) {
+
+            $this->$key = $value;
+        }
     }
 
     public function getArticle()
-   {
-      $model = new ModelArticles();
-      $article = $model->readOneBy("idArticle", $this->getIdArticle());
-     
-      return $article;
-   }
+    {
+        $model = new ModelArticles();
+        $article = $model->readOneBy("idArticle", $this->getIdArticle());
+
+        return $article;
+    }
 }

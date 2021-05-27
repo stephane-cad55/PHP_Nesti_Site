@@ -2,7 +2,6 @@
 
 abstract class BaseController
 {
-
     protected $data = [];
 
     public function __construct()
@@ -12,7 +11,8 @@ abstract class BaseController
 
     protected abstract function initialize();
 
-    public function getData(){
+    public function getData()
+    {
         return $this->data;
     }
 }

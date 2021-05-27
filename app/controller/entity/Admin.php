@@ -4,8 +4,6 @@ class Admin
 {
     private $idAdmin;
 
-
-
     /**
      * Get the value of idAdmin
      */
@@ -17,7 +15,7 @@ class Admin
     /**
      * Set the value of idAdmin
      */
-    public function setIdAdmin($idAdmin) : self
+    public function setIdAdmin($idAdmin): self
     {
         $this->idAdmin = $idAdmin;
 
