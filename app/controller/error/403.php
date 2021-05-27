@@ -1,11 +1,5 @@
 <style>
 
-$color: #54FE55;
-$color2: #1a4f1a;
-$glowSize: 10px;
-
-
-
 *{
    font-family: 'Press Start 2P', cursive;
    box-sizing: border-box;
@@ -18,13 +12,16 @@ $glowSize: 10px;
    justify-content: center; 
    align-items: center;
    color: green;
-   text-shadow: 0px 0px $glowSize ;
+   text-shadow: 0px 0px;
    font-size: 6rem;
    flex-direction: column;
+}
+
    .txt {
       font-size: 1.8rem;
    }
-}
+
+
 @keyframes blink {
     0%   {opacity: 0}
     49%  {opacity: 0}

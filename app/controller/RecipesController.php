@@ -8,7 +8,7 @@ class RecipesController extends BaseController
     $loc    = filter_input(INPUT_GET, "loc", FILTER_SANITIZE_STRING);
     $action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_STRING);
     $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_STRING);
-    
+
     if ($action == '') {
       $this->data['arrayRecipes'] = $model->readAll();
     }
@@ -131,6 +131,11 @@ class RecipesController extends BaseController
     $model = new ModelRecipes();
     $recipe = $model->readOneBy("idRecipe", $idRecipe);
     $this->data['recipe'] = $recipe;
+
+    $ingredientRecipeModel = new ModelIngredientRecipe();
+    $ingredientRecipe = $ingredientRecipeModel->readAllIngredientByRecipe($idRecipe);
+    var_dump($ingredientRecipe);
+    $this->data['ingredientrecipe'] = $ingredientRecipe;
 
     if (isset($_POST["recipeName"])) {
       $recipe->setName(filter_input(INPUT_POST, "recipeName"));

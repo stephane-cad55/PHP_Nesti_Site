@@ -36,12 +36,12 @@
                         <label for="formFile" class="form-label"></label>
                         <input class="form-control ml-5" type="file" id="formFile" name="pictures">
                     </div>
-                    <div class="col-sm-2 ml-5 mt-2"><button type="submit" class="btn valid w-100" onclick="dlImg()">Ok</button></div>
+                    <div class="col-sm-2 ml-5 mt-4"><button type="submit" class="btn valid w-100" onclick="dlImg()">Ok</button></div>
                 </div>
             </form>
         </div>
     </div>
-    <div class="recipeCtn h-100">
+    <!-- <div class="recipeCtn h-100">
         <div class="row">
             <div class="col">
                 <div class="row">
@@ -96,5 +96,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
