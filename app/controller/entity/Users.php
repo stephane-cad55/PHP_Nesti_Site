@@ -97,9 +97,13 @@ class Users
       return $this->passwordHash;
    }
 
+   public function setPasswordHashFromPlaintext($plaintextPassword)
+    {
+        $this->setPasswordHash(password_hash($plaintextPassword, PASSWORD_DEFAULT));
+    }
+
    public function setPasswordHash(string $passwordHash)
    {
-      $passwordHash = password_hash($passwordHash, PASSWORD_DEFAULT);
       $this->passwordHash = $passwordHash;
       return $this;
    }

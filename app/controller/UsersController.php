@@ -32,7 +32,7 @@ class UsersController extends BaseController
             $newUser->setFirstname(filter_input(INPUT_POST, "userFirstname"));
             $newUser->setLogin(filter_input(INPUT_POST, "userLogin"));
             $newUser->setEmail(filter_input(INPUT_POST, "userEmail"));
-            $newUser->setPasswordHash(filter_input(INPUT_POST, "userPwd"));
+            $newUser->setPasswordHashFromPlaintext(filter_input(INPUT_POST, "userPwd"));
             $newUser->setAddress1(filter_input(INPUT_POST, "userAdress1"));
             $newUser->setAddress2(filter_input(INPUT_POST, "userAdress2"));
             $newUser->setZipCode(filter_input(INPUT_POST, "userZipCode"));

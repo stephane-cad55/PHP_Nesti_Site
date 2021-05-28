@@ -73,7 +73,7 @@ if (is_int(strpos($session, 'Administateur'))) {
     <div class="row">
 
         <div class="col-sm-2 mr-5">
-            <h5 class="mb-2 mt-4 ml-5">Top 10 Chefs</h5>
+             <!--h5 class="mb-2 mt-4 ml-5">Top 10 Chefs</h5>
 
             <div class="row recipesChiefsList w-100 h-75 ml-5">
 
@@ -83,14 +83,14 @@ if (is_int(strpos($session, 'Administateur'))) {
 
                     foreach ($arrayVars['TopTenChef'] as $chef) { ?>
                         <li class="flex justify-between">
-                            <?= $chef->getUser()->getFirstName() . ' ' . $chef->getUser()->getLastName() ?>
-                            <a href="<?= BASE_URL ?>users/editing/<?= $chef->getIdChef() ?>">Voir</a>
+                            <!--?= $chef->getUser()->getFirstName() . ' ' . $chef->getUser()->getLastName() ?-->
+                            <!--a href="<?= BASE_URL ?>users/editing/<?= $chef->getIdChef() ?>">Voir</a>
                         </li>
 
                     <?php } ?>
 
                 </div>
-            </div>
+            </div--> 
         </div>
 
         <div class="col ml-5 mr-5">
@@ -160,9 +160,9 @@ if (is_int(strpos($session, 'Administateur'))) {
                             </div>
 
                             <div class="col mr-5">
-                                <p><?php foreach ($arrayVars['NbCount'] as $recipe) {
-                                        $recipe->getNbBought();
-                                    }  ?>
+                                <p class="mb-4"><?php foreach ($arrayVars['NbCount'] as $recipe) {
+                                                    $recipe->getNbBought();
+                                                }  ?>
                                 </p><br>
                                 <p>1020</p><br>
                             </div>

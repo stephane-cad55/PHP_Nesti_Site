@@ -23,7 +23,7 @@ class ModelUsers
         //requete
         $pdo = Connection::getPdo();
 
-        $sql = "SELECT idUsers AS idUser, lastName AS lastname, firstName AS firstname, email AS email, passwordHash AS passwordHash, flag AS flag, dateCreation AS dateCreation, login , address1 AS address1, address2 AS address2, zipCode AS zipCode, idcity AS idcity FROM users where $parameter = '$value'";
+        $sql = "SELECT idUsers as idUser, lastName as lastname, firstName as firstname, email, passwordHash, flag, dateCreation, login, address1, address2, zipCode, idCity FROM users where $parameter = '$value'";
 
         $result = $pdo->query($sql);
 

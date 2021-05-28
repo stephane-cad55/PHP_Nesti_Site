@@ -17,6 +17,11 @@
     <script>
         let vars = <?= json_encode($arrayVars ?? []) ?>;
     </script>
+    <?php if ($loc == 'statistics') : ?>
+        <script src="<?= BASE_URL ?>public/js/toast-chart.js"></script>
+        <script src="<?= BASE_URL ?>public/js/statsCharts.js"></script>
+    <?php endif; ?>
+
     <title>PHP_Nesti_Site</title>
 </head>
 
@@ -29,4 +34,3 @@
     }
 
     ?>
-  
