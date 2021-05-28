@@ -1,6 +1,9 @@
-let passWord = document.querySelector("#pwd");
-
-passWord.addEventListener("keyup", checkPassword);
+window.addEventListener("DOMContentLoaded", (event) => {
+    let passWord = document.querySelector("#pwd");
+    if (passWord) {
+        passWord.addEventListener("keyup", checkPassword);
+    }
+});
 
 function checkPassword() {
 

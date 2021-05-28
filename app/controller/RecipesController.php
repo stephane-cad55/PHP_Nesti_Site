@@ -9,20 +9,25 @@ class RecipesController extends BaseController
     $action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_STRING);
     $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_STRING);
 
-    if ($action == '') {
-      $this->data['arrayRecipes'] = $model->readAll();
-    }
-    if ($action == "add") {
-      $this->create();
-    }
-    if ($action == "editing") {
-      $this->editRecipe($id);
-    }
-    if ($action == "deleted") {
-      $this->delete($id);
-    }
-    if ($action == "addimage") {
-      $this->addImage($id);
+    switch ($action) {
+      case "add":
+        $this->create();
+        break;
+      case "editing":
+        $this->editRecipe($id);
+        break;
+      case "deleted":
+        $this->delete($id);
+        break;
+      case "addimage":
+        $this->addImage($id);
+        break;
+      case "adding":
+        $this->addIng($id);
+        break;
+      default:
+        $this->data['arrayRecipes'] = $model->readAll();
+        break;
     }
   }
 
@@ -116,6 +121,55 @@ class RecipesController extends BaseController
         echo "Sorry, there was an error uploading your file.";
       }
     }
+  }
+
+  public function addIng($id)
+  {
+    $name = filter_input(INPUT_POST, "nameIng");
+    $qty = filter_input(INPUT_POST, "qtyIng");
+    $unit = filter_input(INPUT_POST, "unitIng");
+
+    // Validatation 
+
+    $model = new ModelIngredientRecipe();
+    $modelProduct = new ModelProduct();
+    // s'il existe (SELECT) on récupere son id
+    // Sinon on crée un nouveau ingrédient 
+    // last inseert id = id_product
+    $product = $modelProduct->readOneBy("name", $name) ;
+  
+    if($product){
+      $id_product = $product->getIdProduct();
+    }else{
+      // Sinon creation : insertion dans la product  + insertion dans la table ing 
+      $newProduct = $modelProduct->createProduct($name); 
+      $id_product = $newProduct->getIdProduct();
+
+      $modelIngredient = new ModelIngredient();
+      $newIngredient = $modelIngredient->createIngredient($id_product); 
+    }
+ 
+    $modelUnit = new ModelUnit();
+    $myUnit = $modelUnit->readOneBy('name', $unit); // Vérifié
+ 
+    if($myUnit){
+      $id_unit = $myUnit->getIdUnit();
+    }else{
+      $newUnit = $modelUnit->createUnit($unit);
+      $id_unit = $newUnit->getIdUnit();
+    }
+
+    $success = $model->insertIngredientRecipe($id_product, $qty, $id_unit, $id );
+
+    header('Content-Type: application/json');
+    echo json_encode([
+      'success' => $success,
+      'id_recipe' => $id,
+      'name' => $name,
+      'qty' => $qty,
+      'unit' => $unit
+    ]);
+    die;
   }
 
   public function addPreparation($id)

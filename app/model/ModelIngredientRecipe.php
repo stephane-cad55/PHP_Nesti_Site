@@ -28,24 +28,25 @@ class ModelIngredientRecipe
         return $array;
     }
 
-    // public function insertIngredientRecipe(Recipes &$recipe)
-    // {
-    //     $pdo = Connection::getPdo();
-    //     try {
-    //         // Create prepared statement
-    //         $sql = "INSERT INTO ingredientrecipe (name, difficulty,portions,flag,preparationTime,idChef) VALUES (?,?,?,?,?,?)";
+    /**requete insertion ingredient supplementaire
+     */
+    public function insertIngredientRecipe(int $idProduct, int $quantity, int $idUnit, int $idRecipe)
+    {
+        $pdo = Connection::getPdo();
+        try {
+            // Create prepared statement
+            $sql = "INSERT INTO ingredientrecipe (idProduct, quantity, idUnit, idRecipe) VALUES (?,?,?,?)";
 
-    //         $stmt = $pdo->prepare($sql);
+            $stmt = $pdo->prepare($sql);
 
-    //         $values = [$recipe->getName(), $recipe->getDifficulty(), $recipe->getPortions(), $recipe->getFlag(), $recipe->getPreparationTime(), $recipe->getIdChef()];
-    //         // Execute the prepared statement
-    //         $stmt->execute($values);
-    //         $newRecipe = $this->readOneBy("idRecipe", $pdo->lastInsertId());
-    //         echo "Records inserted successfully.";
-    //     } catch (PDOException $e) {
-    //         die("ERROR: Could not able to execute $sql. " . $e->getMessage());
-    //     }
-    //     unset($pdo);
-    //     return $newRecipe;
-    // }
+            $values = [$idProduct, $quantity,$idUnit, $idRecipe];
+            // Execute the prepared statement
+            $success = $stmt->execute($values);
+
+            echo "Records inserted successfully.";
+        } catch (PDOException $e) {
+            die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+        }
+        return $success;
+    }
 }

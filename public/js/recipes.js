@@ -22,13 +22,35 @@ function addIngredient() {
     let ingUnit = document.getElementById("ingUnit");
     let div = document.createElement("div");
     let divCtn = document.getElementById("ingCtn");
-    let ing = ingQty.value + " " + ingUnit.value + " " + ingName.value;
+    let ing = ingName.value + " : " + ingQty.value + " " + ingUnit.value;
+    let btn = document.getElementById('btnAddIng');
+    let id_recipe = btn.getAttribute('data-id');
 
-    div.innerHTML = ing;
-    divCtn.appendChild(div);
-    ingName.value = "";
-    ingQty.value = "";
-    ingUnit.value = "";
+    if (!id_recipe) {
+        alert('Erreur id de recette inconnue');
+    } else if (ingName.value == '') {
+        alert('Veuillez remplir le champs nom');
+    } else if (ingQty.value == '' || isNaN(ingQty.value)) {
+        alert('Veuillez remplir une quantité numérique valide');
+    } else if (ingUnit.value == '') {
+        alert('Veuillez remplir le champs unité');
+
+    } else {
+        // il n'y pas d'erreur
+        div.innerHTML = ing;
+        divCtn.appendChild(div);
+        //requete ajax (jquery)
+        $.post("https://127.0.0.1/www/PHP_Nesti_Site/recipes/adding/" + id_recipe,
+            { nameIng: ingName.value, qtyIng: ingQty.value, unitIng: ingUnit.value },
+            function (data) {
+                console.log(data.name, data.qty, data.unit); 
+
+            }, "json");
+
+        ingName.value = "";
+        ingQty.value = "";
+        ingUnit.value = "";
+    }
 }
 
 function addTextArea() {
@@ -88,7 +110,7 @@ function downBtn(e) {
 function deleteBtn(e) {
     let ctn = e.parentNode.parentNode;
     let prepCtn = document.querySelector("#prepCtn");
-    
+
     if (prepCtn.childElementCount != 1) {
         ctn.remove();
     }

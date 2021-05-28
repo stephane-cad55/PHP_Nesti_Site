@@ -25,7 +25,7 @@ class ModelImages
         return $images;
     }
 
-    public function insertImages(Images &$images)
+    public function insertImages(Images $images)
     {
         $pdo = Connection::getPdo();
         try {
@@ -43,7 +43,6 @@ class ModelImages
         } catch (PDOException $e) {
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
-        unset($pdo);
         return $newImages;
     }
 }

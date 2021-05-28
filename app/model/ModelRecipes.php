@@ -18,7 +18,7 @@ class ModelRecipes
         return $array;
     }
 
-    public function insertRecipe(Recipes &$recipe)
+    public function insertRecipe(Recipes $recipe)
     {
         $pdo = Connection::getPdo();
         try {
@@ -35,11 +35,10 @@ class ModelRecipes
         } catch (PDOException $e) {
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
-        unset($pdo);
         return $newRecipe;
     }
 
-    public function deleteRecipe(Recipes &$recipe)
+    public function deleteRecipe(Recipes $recipe)
     {
         $pdo = Connection::getPdo();
         try {
@@ -55,7 +54,6 @@ class ModelRecipes
         } catch (PDOException $e) {
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
-        unset($pdo);
         return  $deleteRecipe;
     }
 
@@ -95,7 +93,7 @@ class ModelRecipes
         return $array;
     }
 
-    public function updateRecipes(Recipes &$recipe)
+    public function updateRecipes(Recipes $recipe)
     {
         $pdo = Connection::getPdo();
         try {
@@ -111,7 +109,6 @@ class ModelRecipes
         } catch (PDOException $e) {
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
-        unset($pdo);
         return $recipe;
     }
 }

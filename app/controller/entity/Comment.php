@@ -10,11 +10,6 @@ class Comment
     private $flag;
     private $idModerator;
 
-    public function getNameRecipe()
-    {
-        return $this->idRecipe;
-    }
-
     /**
      * Get the value of idRecipe
      */
@@ -139,5 +134,12 @@ class Comment
         $this->idModerator = $idModerator;
 
         return $this;
+    }
+
+    public function getRecipe()
+    {
+        $modelRecipes = new ModelRecipes();
+        $recipe = $modelRecipes->readOneBy("idRecipe", $this->getIdRecipe());
+        return $recipe;
     }
 }

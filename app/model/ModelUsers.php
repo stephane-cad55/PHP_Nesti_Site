@@ -51,7 +51,7 @@ class ModelUsers
         return $data;
     }
 
-    public function insertUser(Users &$user)
+    public function insertUser(Users $user)
     {
 
         $pdo = Connection::getPdo();
@@ -72,11 +72,10 @@ class ModelUsers
         } catch (PDOException $e) {
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
-        unset($pdo);
         return $newUser;
     }
 
-    public function deleteUser(Users &$user)
+    public function deleteUser(Users $user)
     {
         $pdo = Connection::getPdo();
         try {
@@ -93,11 +92,10 @@ class ModelUsers
         } catch (PDOException $e) {
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
-        unset($pdo);
         return  $deleteUser;
     }
 
-    public function updateUsers(Users &$user)
+    public function updateUsers(Users $user)
     {
         $pdo = Connection::getPdo();
         try {
@@ -115,7 +113,6 @@ class ModelUsers
         } catch (PDOException $e) {
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
-        unset($pdo);
         return $user;
     }
 }

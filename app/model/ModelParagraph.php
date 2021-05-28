@@ -54,7 +54,7 @@ class ModelParagraph
         return $array;
     }
 
-    public function addPreparation(Paragraph &$recipe)
+    public function addPreparation(Paragraph $recipe)
     {
         $pdo = Connection::getPdo();
         try {
@@ -71,7 +71,6 @@ class ModelParagraph
         } catch (PDOException $e) {
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
-        unset($pdo);
         return $recipe;
     }
 }

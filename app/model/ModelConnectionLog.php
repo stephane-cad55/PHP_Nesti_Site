@@ -19,7 +19,7 @@ class ModelConnectionLog
         return $array;
     }
 
-    public function insertDateCo(Users &$IdUser)
+    public function insertDateCo(Users $IdUser)
     {
 
         $pdo = Connection::getPdo();

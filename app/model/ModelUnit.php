@@ -3,7 +3,6 @@
 include_once(PATH_MODEL . 'Connection.php');
 class ModelUnit
 {
-
     public function readAll()
     {
         //requete
@@ -16,9 +15,9 @@ class ModelUnit
         } else {
             $array = [];
         }
-
         return $array;
     }
+
     public function readOneBy($parameter, $value)
     {
         //requete
@@ -27,18 +26,19 @@ class ModelUnit
         $sql = "SELECT * FROM unit where $parameter = '$value'";
 
         $result = $pdo->query($sql);
-        if ($result) {
-
-            $data = $result->fetch(PDO::FETCH_ASSOC);
+       
+        $data = $result->fetch(PDO::FETCH_ASSOC);
+       
+        if ($data) {
+            $unit = new Unit();
+            $unit->setUnitFromArray($data);
         } else {
 
-            $data = [];
+            $unit = [];
         }
-        $user = new Unit();
-        $user->setUnitFromArray($data);
-
-        return $user;
+        return $unit;
     }
+
     public function findChild($type, $value)
     {
         $pdo = Connection::getPdo();
@@ -47,5 +47,27 @@ class ModelUnit
         $result = $pdo->query($sql);
         $data = $result->fetch();
         return $data;
+    }
+
+    /**requete insertion unité ingredient supplementaire
+     */
+    public function createUnit($unit)
+    {
+        $pdo = Connection::getPdo();
+        try {
+            // Create prepared statement
+            $sql = "INSERT INTO unit (name) VALUES (?)";
+
+            $stmt = $pdo->prepare($sql);
+
+            $values = [$unit];
+            // Execute the prepared statement
+            $success = $stmt->execute($values);
+            $newUnit = $this->readOneBy("idUnit", $pdo->lastInsertId());
+            echo "Records inserted successfully.";
+        } catch (PDOException $e) {
+            die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+        }
+        return $newUnit;
     }
 }

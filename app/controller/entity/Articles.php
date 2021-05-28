@@ -10,6 +10,7 @@ class Articles
         private $idImage;
         private $idUnit;
         private $idProduct;
+        private $nameArticle;
 
         /**
          * Get the value of idArticle
@@ -159,6 +160,26 @@ class Articles
                 return $this;
         }
 
+         /**
+         * Get the value of nameArticle
+         */ 
+        public function getNameArticle()
+        {
+                return $this->nameArticle;
+        }
+
+        /**
+         * Set the value of nameArticle
+         *
+         * @return  self
+         */ 
+        public function setNameArticle($nameArticle)
+        {
+                $this->nameArticle = $nameArticle;
+
+                return $this;
+        }
+
         public function getName()
         {
                 $name = new ModelProduct();
@@ -274,6 +295,7 @@ class Articles
 
         public function getLastPriceAt(String $dateMax): String
         {
+                $price = 0;
                 $maxDate = 0;
                 $arrayArticlePrice = $this->getArticlePrices();
 
@@ -287,5 +309,5 @@ class Articles
                         }
                 }
                 return $price;
-        }
+        } 
 }

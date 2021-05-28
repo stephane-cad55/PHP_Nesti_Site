@@ -38,6 +38,7 @@ class ModelArticles
         $user->setArticleFromArray($data);
         return $user;
     }
+
     public function findChild($type, $value)
     {
         $pdo = Connection::getPdo();
@@ -45,5 +46,44 @@ class ModelArticles
         $result = $pdo->query($sql);
         $data = $result->fetch();
         return $data;
+    }
+
+    public function updateArticleName($idArticle, Articles $article)
+    {
+        $pdo = Connection::getPdo();
+        try {
+            $sql = "UPDATE article SET nameArticle = ? where idArticle = ?";
+
+            $stmt = $pdo->prepare($sql);
+
+            $values = [$article->getNameArticle(),$idArticle];
+           
+            // Execute the prepared statement
+            $stmt->execute($values);
+            $article = $this->readOneBy("idArticle", $article->getIdArticle());
+        
+        } catch (PDOException $e) {
+            die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+        }
+        return $article;
+    }
+
+    public function deletedArticle(Articles $article)
+    {
+        $pdo = Connection::getPdo();
+        try {
+            $sql = "UPDATE article SET flag = 'b' WHERE idArticle = ?";
+
+            $stmt = $pdo->prepare($sql);
+
+            $values = [$article->getIdArticle()];
+            // Execute the prepared statement
+            $stmt->execute($values);
+            $deleteArticle = $this->readOneBy("idArticle", $article->getIdArticle());
+          
+        } catch (PDOException $e) {
+            die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+        }
+        return  $deleteArticle;
     }
 }

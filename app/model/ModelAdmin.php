@@ -3,7 +3,7 @@
 include_once(PATH_MODEL.'Connection.php');
 class ModelAdmin {
 
-    public function insertAdmin(Admin &$idAdmin){
+    public function insertAdmin(Admin $idAdmin){
 
         $pdo= Connection::getPdo();
         try{
@@ -21,6 +21,5 @@ class ModelAdmin {
         } catch(PDOException $e){
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
-        unset($pdo);
     }
 }

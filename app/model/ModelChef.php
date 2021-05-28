@@ -19,7 +19,7 @@ class ModelChef
         return $array;
     }
 
-    public function insertChef(Chef &$idChef)
+    public function insertChef(Chef $idChef)
     {
         $pdo = Connection::getPdo();
         try {
@@ -36,6 +36,5 @@ class ModelChef
         } catch (PDOException $e) {
             die("ERROR: Could not able to execute $sql. " . $e->getMessage());
         }
-        unset($pdo);
     }
 }

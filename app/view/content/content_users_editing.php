@@ -170,9 +170,9 @@
                     foreach ($user->getComments() as $com) {
                     ?>
                         <tr>
-                            <td></td>
+                            <td><?= $com->getIdRecipe(); ?></td>
                             <td><?= $com->getCommentTitle(); ?></td>
-                            <td>a modifier : <?= $com->getNameRecipe(); ?></td>
+                            <td><?= $com->getRecipe()->getName(); ?></td>
                             <td><?= $com->getCommentContent(); ?></td>
                             <td><?= $value->getDateCreation(); ?></td>
                             <td><?= $value->getState($value); ?></td>
