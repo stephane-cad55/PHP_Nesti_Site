@@ -41,7 +41,7 @@
     </div>
     <div class="recipeCtn h-100">
         <div class="row">
-            <form class="col">
+            <div class="col">
                 <div class="row">
                     <div class="col-sm-1"></div>
                     <div class="col">
@@ -63,8 +63,9 @@
                         </div>
                         <div class="col">
                             <?php foreach ($recipe->getParagraphs() as $paragraph) { ?>
-                                <textarea class="prepText w-100 h-100"><?= $paragraph->getContent() ?></textarea>
-                                <!-- <input type="text" class="w-100" value="<?= $paragraph->getContent() ?>"> -->
+                                <!-- <textarea class="prepText w-100 h-100"><?= $paragraph->getContent() ?></textarea> -->
+                                <input type="text" id="prepText" class="prepText w-100 h-50"
+                                value="<?= $paragraph->getContent() ?>">
                             <?php }
                             ?>
                         </div>
@@ -78,17 +79,22 @@
                         </button>
                     </div>
                 </div>
-            </form>
+            </div>
             <div class="col-sm-4">
                 <h2>Liste des ingrédients</h2>
                 <div class="ingredientsCtn" id="ingCtn">
-                    <?var_dump($ingredientrecipe)?>
-                </div>
-                <p class="mt-2 mb-2">Ajouter un ingrédient</p>
+                    <?php foreach ($ingredientrecipe as $ingredient) { ?>
+                        <div class="d-flex justify-content-start ml-2">
+                            <div><?= ($ingredient["nameIngredient"]) ?> :</div>
+                            <div>&nbsp<?= ($ingredient["quantity"]) ?></div>
+                            <div>&nbsp<?= ($ingredient["nameUnit"]) ?></div>
+                        </div>
+                    <?php } ?>
+                </div> <p class="mt-2 mb-2">Ajouter un ingrédient</p>
                 <input type="text" id="ingName" class="mb-2 w-100" style="height: 38px;" placeholder="nom de l'ingrédient">
                 <div class="row">
                     <div class="col-md-5">
-                        <input type="text" onkeypress="return onlyNumberKey(event)" id="ingQty" class="w-100 h-100" placeholder="quantité" >
+                        <input type="text" onkeypress="return onlyNumberKey(event)" id="ingQty" class="w-100 h-100" placeholder="quantité">
                     </div>
                     <div class="col-md-5">
                         <input type="text" id="ingUnit" class="w-100 h-100" placeholder="unité">

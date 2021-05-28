@@ -12,7 +12,6 @@ class RecipesController extends BaseController
     if ($action == '') {
       $this->data['arrayRecipes'] = $model->readAll();
     }
-    // var_dump($action);
     if ($action == "add") {
       $this->create();
     }
@@ -134,7 +133,6 @@ class RecipesController extends BaseController
 
     $ingredientRecipeModel = new ModelIngredientRecipe();
     $ingredientRecipe = $ingredientRecipeModel->readAllIngredientByRecipe($idRecipe);
-    var_dump($ingredientRecipe);
     $this->data['ingredientrecipe'] = $ingredientRecipe;
 
     if (isset($_POST["recipeName"])) {
