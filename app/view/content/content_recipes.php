@@ -9,17 +9,26 @@ if ((is_int(strpos($session, 'Administateur')) || (is_int(strpos($session, 'Chef
 
     <div class="container bg-white d-flex flex-column align-items-left" id="recipes">
         <div class="d-flex flex-row justify-content-between">
+
+            <!--barre de recherche pour les recettes-->
             <nav class="navbar navbar-white bg-white pl-0">
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" id="customSearch" type="search" placeholder="" aria-label="Search">
                     <img id="searchRecipe" src="<?php BASE_URL ?>public/images/search.png" alt="" width="20px" height="25px">
                 </form>
             </nav>
+            <!--fin barre de recherche pour les recettes-->
+
+            <!--bouton ajout pour les recettes-->
             <div>
                 <a href="<?php BASE_URL ?>recipes/creation" class="btn mb-1 border align-self-end"><img id="add" src="<?php BASE_URL ?>public/images/add.png" alt="" width="20px" height="20px"> Ajouter</a>
             </div>
+            <!--fin bouton ajout pour les recettes-->
+
         </div>
         <figcaption class="font-weight-bold">Accepté = bleu / En attente = Noir / Bloqué = rouge</figcaption>
+
+        <!--contenu tableau recettes -->
         <table class="table">
 
             <thead>

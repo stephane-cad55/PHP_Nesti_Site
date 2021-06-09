@@ -22,6 +22,12 @@ class UsersController extends BaseController
             $this->delete($idUser);
         }
     }
+
+     /**
+     * addUser
+     *
+     * @return void
+     */
     public function addUser()
     {
         $newUser = new Users();

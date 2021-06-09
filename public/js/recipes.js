@@ -17,18 +17,18 @@ function dlImg() {
 
 function addIngredient() {
 
-    let ingName = document.getElementById("ingName");
-    let ingQty = document.getElementById("ingQty");
-    let ingUnit = document.getElementById("ingUnit");
+    let ingName = document.getElementById("ingName");//on récupère le nom de l'ingrédient grâce à l'id
+    let ingQty = document.getElementById("ingQty");//on récupère la quantité de l'ingrédient grâce à l'id
+    let ingUnit = document.getElementById("ingUnit");//on récupère l'unité de l'ingrédient grâce à l'id
     let div = document.createElement("div");
     let divCtn = document.getElementById("ingCtn");
     let ing = ingName.value + " : " + ingQty.value + " " + ingUnit.value;
     let btn = document.getElementById('btnAddIng');
     let id_recipe = btn.getAttribute('data-id');
 
-    if (!id_recipe) {
+    if (!id_recipe) {// si la recette n'est pas connue, un message d'alerte indique que l'id de la recette est inconnue
         alert('Erreur id de recette inconnue');
-    } else if (ingName.value == '') {
+    } else if (ingName.value == '') {//sinon il faut remplir les champs (nouvel ingrédient: nom , quantité et unité)
         alert('Veuillez remplir le champs nom');
     } else if (ingQty.value == '' || isNaN(ingQty.value)) {
         alert('Veuillez remplir une quantité numérique valide');

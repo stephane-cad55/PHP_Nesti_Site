@@ -13,13 +13,13 @@
                 <p class="mt-5">Prénom</p><br>
                 <input type="text" class="w-75" name="userFirstname">
 
-                <p class="mt-5">Adress1</p><br>
+                <p class="mt-5">Adresse</p><br>
                 <input type="text" class="w-75" name="userAdress1">
 
-                <p class="mt-5">Adress2</p><br>
+                <p class="mt-5">Complément d'adresse</p><br>
                 <input type="text" class="w-75" name="userAdress2">
 
-                <p class="mt-5">Zipcode</p><br>
+                <p class="mt-5">Code postal</p><br>
                 <input type="text" class="w-75" name="userZipCode">
 
 
@@ -52,7 +52,7 @@
             </div>
 
             <div class="col mt-5">
-                <p class="mt-5">Login</p><br>
+                <p class="mt-5">Identifiant</p><br>
                 <input type="text" class="w-75" name="userLogin">
                 <p class="mt-5">Email</p><br>
                 <input type="text" class="w-75" name="userEmail">
