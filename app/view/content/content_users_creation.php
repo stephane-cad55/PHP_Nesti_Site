@@ -57,11 +57,10 @@
                 <p class="mt-5">Email</p><br>
                 <input type="text" class="w-75" name="userEmail">
                 <p class="mt-5">Mot de passe</p><br><input type="password" class="w-75" name="userPwd" id="pwd" required>
-                &nbsp;<br><br>Complexité du mot de passe : <meter value="0" low="3" high="5" min="0" max="5" id="pwd_meter">0%</meter><br>
+                &nbsp;<br><br>Complexité du mot de passe : <meter value="0" low="2" high="4" optimum="5" min="0" max="5" id="pwd_meter">0%</meter><br>
 
                 <ul><br>
-                    <li><span class="advice mr-5" id=><em><b>Conseils pour le mot de passe (Tous les lignes ci-dessous
-                                    doivent être vertes).</b></em></span></li>
+                    <li><span class="advice mr-5" id=><em><b>Recommandations pour le mot de passe.</b></em></span></li>
                     <li><span class="advice mr-5" id="pwd_warn1">Le mot de passe doit faire plus de 8 caractères.</span>
                     </li>
                     <li><span class="advice" id="pwd_warn2">Le mot de passe doit contenir au moins une lettre
