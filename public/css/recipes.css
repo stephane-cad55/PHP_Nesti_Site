@@ -16,11 +16,6 @@
     --colorButtonValidate: #b0d41c;
 }
 
-p {
-    margin-block-start: unset;
-    margin-block-end: unset;
-}
-
 .valid {
     background-color: var(--colorButtonValidate);
     color: var(--primaryColor);

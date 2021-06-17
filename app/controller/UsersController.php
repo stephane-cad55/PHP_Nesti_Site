@@ -24,7 +24,7 @@ class UsersController extends BaseController
     }
 
      /**
-     * addUser
+     * function addUser
      *
      * @return void
      */

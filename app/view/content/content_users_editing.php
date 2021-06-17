@@ -116,7 +116,7 @@
                             <td><?= $value->getCoast(); ?></td>
                             <td></td>
                             <td><?= $value->getDateCreation(); ?></td>
-                            <td><?= $value->getState($value); ?></td>
+                            <td><?= $value->getState(); ?></td>
                             <td></td>
                         </tr>
                     <?php
@@ -174,8 +174,8 @@
                             <td><?= $com->getCommentTitle(); ?></td>
                             <td><?= $com->getRecipe()->getName(); ?></td>
                             <td><?= $com->getCommentContent(); ?></td>
-                            <td><?= $value->getDateCreation(); ?></td>
-                            <td><?= $value->getState($value); ?></td>
+                            <td><?= $com->getDateCreation(); ?></td>
+                            <td><?= $com->getState(); ?></td>
                             <td>
                                 <a href="">Approuver</a><br>
 

@@ -142,4 +142,16 @@ class Comment
         $recipe = $modelRecipes->readOneBy("idRecipe", $this->getIdRecipe());
         return $recipe;
     }
+
+    public function getState()
+    {
+        if ($this->getFlag() == "a") {
+            $state = "Approuvé";
+        } else if ($this->getFlag() == "w") {
+            $state = "En attente";
+        } else {
+            $state = "Bloqué";
+        }
+        return $state;
+    }
 }

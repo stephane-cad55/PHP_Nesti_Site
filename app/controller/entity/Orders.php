@@ -45,11 +45,11 @@ class Orders
         return $this;
     }
 
-    public function getState($entity)
+    public function getState()
     {
-        if ($entity->getFlag() == "a") {
+        if ($this->getFlag() == "a") {
             $state = "Payé";
-        } else if ($entity->getFlag() == "w") {
+        } else if ($this->getFlag() == "w") {
             $state = "En attente";
         } else {
             $state = "Annulé";
