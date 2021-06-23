@@ -39,7 +39,7 @@ function addIngredient() {
         // il n'y pas d'erreur
         div.innerHTML = ing;
         divCtn.appendChild(div);
-        //requete ajax (jquery)
+        //requete ajax
         $.post("https://127.0.0.1/www/PHP_Nesti_Site/recipes/adding/" + id_recipe,
             { nameIng: ingName.value, qtyIng: ingQty.value, unitIng: ingUnit.value },
             function (data) {
